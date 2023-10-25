@@ -1,0 +1,1 @@
+add_library(BookLibrary book.cpp book.h)
