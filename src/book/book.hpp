@@ -6,17 +6,17 @@ using namespace std;
 class Book
 {
 private:
-    string title;
-    string author;
-    string isbn;
+    char title[101];
+    char author[101];
+    char isbn[101];
     int price;
     int year;
-    string *description;
+    char* description;
 
 public:
-    Book(string title, string author, string isbn, int price, int year);
+    Book(string title, string author, string isbn, int price, int year, string desc);
     ~Book();
     string getBookTitle();
     int getBookPrice();
-    void addDescription(string x);
+    Book(const Book &otherbk);
 };
