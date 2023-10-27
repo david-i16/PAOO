@@ -7,7 +7,7 @@ add_subdirectory(book)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_executable(PAOO main.cpp)
+add_executable(PAOO main.cxx)
 
 target_link_libraries(PAOO PUBLIC Book)
 

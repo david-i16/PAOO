@@ -1,9 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include "book.hpp"
-using namespace std;
 
-Book::Book(string title, string author, string isbn, int price, int year, string desc)
+Book::Book(std::string title, std::string author, std::string isbn, int price, int year, std::string desc)
 {
     strcpy(this->title, title.c_str());
     this->price = price;
@@ -16,12 +15,12 @@ Book::Book(string title, string author, string isbn, int price, int year, string
 
 Book::~Book()
 {
-    cout<<"I have been deleted!\n";
+    std::cout<<"I have been deleted!\n";
 
     delete[] this->description;
 }
 
-string Book::getBookTitle()
+std::string Book::getBookTitle()
 {
     return this->title;
 }
@@ -34,7 +33,7 @@ int Book::getBookPrice()
 
 Book::Book(const Book &otherbk)
 {
-    cout<<"I have been copied!\n";
+    std::cout<<"I have been copied!\n";
     strcpy(this->title, otherbk.title);
     strcpy(this->author, otherbk.author);
     strcpy(this->isbn, otherbk.isbn);
@@ -42,4 +41,21 @@ Book::Book(const Book &otherbk)
     this->year = otherbk.year;
     this->description = new char[strlen(otherbk.description) + 3];
     strcpy(this->description, otherbk.description);
+}
+
+Book::Book(Book &&otherbk)
+{
+    std::cout<<"I have been moved!\n";
+    strcpy(this->title, otherbk.title);
+    memset(otherbk.title, 0, sizeof otherbk.title);
+    strcpy(this->author, otherbk.author);
+    memset(otherbk.author, 0, sizeof otherbk.author);
+    strcpy(this->isbn, otherbk.isbn);
+    memset(otherbk.isbn, 0, sizeof otherbk.isbn);
+    this->price = otherbk.price;
+    otherbk.price = 0;
+    this->year = otherbk.year;
+    otherbk.year = 0;
+    this->description = otherbk.description;
+    otherbk.description = NULL;
 }

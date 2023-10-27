@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-using namespace std;
 
 class Book
 {
@@ -14,9 +13,10 @@ private:
     char* description;
 
 public:
-    Book(string title, string author, string isbn, int price, int year, string desc);
+    Book(std::string title, std::string author, std::string isbn, int price, int year, std::string desc);
     ~Book();
-    string getBookTitle();
+    std::string getBookTitle();
     int getBookPrice();
     Book(const Book &otherbk);
+    Book(Book &&otherbk);
 };
