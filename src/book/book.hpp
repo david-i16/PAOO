@@ -19,4 +19,7 @@ public:
     int getBookPrice();
     Book(const Book &otherbk);
     Book(Book &&otherbk);
+    Book& operator=(const Book &otherbk); 
+    Book& operator=(Book &&otherbk); 
+    Book();
 };
