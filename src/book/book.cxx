@@ -105,3 +105,38 @@ Book& Book::operator=(Book &&otherbk)
     }
     return *this;
 }
+
+
+DigitalBook::DigitalBook(std::string title, std::string author, std::string isbn, int price, int year, std::string desc, int fileSize)
+: Book(title, author, isbn, price, year, desc), fileSize(fileSize) {}
+
+int DigitalBook::getFileSize() 
+{
+    return fileSize;
+}
+
+
+void Book::displayInfo()
+{
+    std::cout << "Title: " << title << ", Author: " << author << ", Year: " << year << std::endl;
+}
+
+void DigitalBook::displayInfo()
+{
+    Book::displayInfo(); 
+    std::cout << "File Size: " << fileSize << "MB" << std::endl;
+}
+
+
+void Book::print()
+{
+    std::cout << "Printing book details..." << std::endl;
+    displayInfo();
+}
+
+Printable::~Printable() 
+{
+    
+}
+
+

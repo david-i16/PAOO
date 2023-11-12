@@ -23,5 +23,12 @@ int main()
     bk5 = Book("Title3", "Author3", "ISBN3", 300, 2002, "Description3"); // Move assignment
     std::cout<<bk5.getBookTitle()<<"\n";
 
+
+
+    DigitalBook eBook("Digital Title", "Digital Author", "12345DIGITAL", 50, 2021, "Digital Description", 500);
+    eBook.displayInfo(); 
+    Book* bookPtr = &eBook;
+    bookPtr->print(); 
+
     return 0;
 }

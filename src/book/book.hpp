@@ -2,8 +2,13 @@
 
 #include <iostream>
 
-class Book
-{
+class Printable {
+public:
+    virtual void print() = 0;
+    virtual ~Printable() = 0;
+};
+
+class Book : public Printable {
 private:
     char title[101];
     char author[101];
@@ -22,4 +27,19 @@ public:
     Book& operator=(const Book &otherbk); 
     Book& operator=(Book &&otherbk); 
     Book();
+    virtual void displayInfo();
+    void print() override;
 };
+
+class DigitalBook : public Book 
+{
+private:
+    int fileSize; 
+
+public:
+    DigitalBook(std::string title, std::string author, std::string isbn, int price, int year, std::string desc, int fileSize);
+    int getFileSize();
+    void displayInfo() override;
+};
+
+
