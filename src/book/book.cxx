@@ -2,6 +2,12 @@
 #include <cstring>
 #include "book.hpp"
 
+
+
+namespace library {
+
+
+
 Book::Book() {
     title[0] = '\0';
     author[0] = '\0';
@@ -140,3 +146,5 @@ Printable::~Printable()
 }
 
 
+
+}

@@ -12,22 +12,22 @@ int main()
     Book bk4(std::move(bk1));
     std::cout<<bk4.getBookTitle()<<"\n"<<bk1.getBookTitle();*/
 
-    Book bk1("Title1", "Author1", "ISBN1", 100, 2000, "Description1");
-    Book bk2 = bk1; // Copy constructor
-    Book bk3;
+    library::Book bk1("Title1", "Author1", "ISBN1", 100, 2000, "Description1");
+    library::Book bk2 = bk1; // Copy constructor
+    library::Book bk3;
     bk3 = bk2; // Copy assignment
     std::cout<<bk3.getBookTitle()<<"\n";
 
-    Book bk4 = Book("Title2", "Author2", "ISBN2", 200, 2001, "Description2"); // Move constructor
-    Book bk5;
-    bk5 = Book("Title3", "Author3", "ISBN3", 300, 2002, "Description3"); // Move assignment
+    library::Book bk4 = library::Book("Title2", "Author2", "ISBN2", 200, 2001, "Description2"); // Move constructor
+    library::Book bk5;
+    bk5 = library::Book("Title3", "Author3", "ISBN3", 300, 2002, "Description3"); // Move assignment
     std::cout<<bk5.getBookTitle()<<"\n";
 
 
 
-    DigitalBook eBook("Digital Title", "Digital Author", "12345DIGITAL", 50, 2021, "Digital Description", 500);
+    library::DigitalBook eBook("Digital Title", "Digital Author", "12345DIGITAL", 50, 2021, "Digital Description", 500);
     eBook.displayInfo(); 
-    Book* bookPtr = &eBook;
+    library::Book* bookPtr = &eBook;
     bookPtr->print(); 
 
     return 0;

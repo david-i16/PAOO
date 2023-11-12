@@ -2,6 +2,10 @@
 
 #include <iostream>
 
+namespace library {
+
+
+
 class Printable {
 public:
     virtual void print() = 0;
@@ -43,3 +47,4 @@ public:
 };
 
 
+}
