@@ -28,7 +28,9 @@ int main()
     library::DigitalBook eBook("Digital Title", "Digital Author", "12345DIGITAL", 50, 2021, "Digital Description", 500);
     eBook.displayInfo(); 
     library::Book* bookPtr = &eBook;
-    bookPtr->print(); 
+    bookPtr->print();
+    library::AudioBook audioBook("Audio Title", "Audio Author", "12345AUDIO", 60, 2021, "Audio Description", 600);
+    audioBook.displayInfo(); 
 
     return 0;
 }

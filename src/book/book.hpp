@@ -47,4 +47,16 @@ public:
 };
 
 
+class AudioBook : public Book 
+{
+private:
+    int duration; 
+
+public:
+    AudioBook(std::string title, std::string author, std::string isbn, int price, int year, std::string desc, int duration);
+    int getDuration();
+    void displayInfo() override; 
+};
+
+
 }

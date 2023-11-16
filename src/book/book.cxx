@@ -145,6 +145,20 @@ Printable::~Printable()
     
 }
 
+AudioBook::AudioBook(std::string title, std::string author, std::string isbn, int price, int year, std::string desc, int duration)
+: Book(title, author, isbn, price, year, desc), duration(duration) {}
+
+int AudioBook::getDuration() 
+{
+    return duration;
+}
+
+void AudioBook::displayInfo()
+{
+    Book::displayInfo(); 
+    std::cout << "Duration: " << duration << " minutes" << std::endl;
+}
+
 
 
 }
