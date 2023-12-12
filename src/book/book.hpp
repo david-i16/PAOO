@@ -1,7 +1,12 @@
 #pragma once
 
 #include <iostream>
+#include <memory>
+#include <thread>
+#include <mutex>
+#include <vector>
 
+/*
 namespace library {
 
 
@@ -59,4 +64,29 @@ public:
 };
 
 
+}*/
+
+
+
+std::mutex mtx; 
+
+void print(const std::string& message) {
+    std::lock_guard<std::mutex> guard(mtx); 
+    std::cout << message << std::endl;
 }
+
+void threadFunc(std::shared_ptr<int> sharedData) {
+    print("Thread started. Shared data: " + std::to_string(*sharedData));
+    //.............
+    //.............
+    //.............
+    print("Thread ending.");
+}
+
+
+
+
+
+
+
+

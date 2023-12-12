@@ -1,6 +1,11 @@
 #include <iostream>
 #include <string>
 #include "book.hpp"
+#include <memory>
+#include <thread>
+#include <mutex>
+#include <vector>
+
 
 int main()
 {
@@ -12,7 +17,7 @@ int main()
     Book bk4(std::move(bk1));
     std::cout<<bk4.getBookTitle()<<"\n"<<bk1.getBookTitle();*/
 
-    library::Book bk1("Title1", "Author1", "ISBN1", 100, 2000, "Description1");
+    /*library::Book bk1("Title1", "Author1", "ISBN1", 100, 2000, "Description1");
     library::Book bk2 = bk1; // Copy constructor
     library::Book bk3;
     bk3 = bk2; // Copy assignment
@@ -30,7 +35,36 @@ int main()
     library::Book* bookPtr = &eBook;
     bookPtr->print();
     library::AudioBook audioBook("Audio Title", "Audio Author", "12345AUDIO", 60, 2021, "Audio Description", 600);
-    audioBook.displayInfo(); 
+    audioBook.displayInfo(); */
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    std::unique_ptr<int> unique(new int(3)); 
+    std::cout << "Unique pointer data: " << *unique << std::endl;
+
+    std::shared_ptr<int> shared(new int(5));
+    std::cout << "Shared pointer data: " << *shared << std::endl;
+
+    std::vector<std::thread> threads;
+    for (int i = 0; i < 3; ++i) {
+        threads.push_back(std::thread(threadFunc, shared));
+    }
+
+    for (auto& t : threads) {
+        t.join();
+    }
+
+    
 
     return 0;
 }
